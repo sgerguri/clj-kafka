@@ -1,6 +1,6 @@
-(defproject clj-kafka/clj-kafka "0.2.8-0.8.1.1"
+(defproject clj-kafka/clj-kafka "0.2.8-0.8.1.1-concurrent-1"
   :min-lein-version "2.0.0"
-  :url "https://github.com/pingles/clj-kafka"
+  :url "https://github.com/sgerguri/clj-kafka"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
@@ -9,7 +9,7 @@
 
                  ;; kafka and its related deps
                  [org.apache.kafka/kafka_2.10 "0.8.1.1"]
-                 [org.apache.zookeeper/zookeeper "3.3.4"]
+                 [org.apache.zookeeper/zookeeper "3.4.6"]
                  [com.101tec/zkclient "0.4"]
                  [com.yammer.metrics/metrics-core "2.2.0"]
                  [org.scala-lang/scala-library "2.10.1"]
