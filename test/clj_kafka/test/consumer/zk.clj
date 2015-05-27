@@ -32,9 +32,10 @@
   (with-test-broker test-broker-config
     (with-resource [c (zk/consumer consumer-config)]
       zk/shutdown
-      (let [p (producer producer-config)]
+      (let [p (producer producer-config)
+            msg-seq (first (zk/message-seqs c "test"))]
         (send-messages p messages)
-        (first (zk/messages c "test"))))))
+        (first msg-seq)))))
 
 (given (send-and-receive [(test-message)])
        (expect :topic "test"

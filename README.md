@@ -46,9 +46,13 @@ The Zookeeper consumer uses broker information contained within Zookeeper to con
              "auto.offset.reset" "smallest"
              "auto.commit.enable" "false"})
 
-(with-resource [c (consumer config)]
-  shutdown
-  (take 2 (messages c "test")))
+(def c (consumer config))
+(def messages (first (message-seqs c "test")))
+(take 2 (messages c "test"))
+
+;; consume the messages - take is lazy!
+;; when done, do the following:
+(shutdown c)
 ```
 
 ## License
